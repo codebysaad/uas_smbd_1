@@ -299,7 +299,7 @@
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">ID Pelanggan</label>
-                          <input name="idPel" type="text" class="form-control" value="<?php echo $d['idPel']; ?>" disabled>
+                          <input name="idPel" type="text" class="form-control" value="<?php echo $d['idPel']; ?>">
                         </div>
                       </div>
                       <div class="col-md-8">

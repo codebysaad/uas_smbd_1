@@ -287,7 +287,7 @@
                       </div>
                         <div class="form-group col-md-12">
                             <label for="inputState">Pilih Kamar</label>
-                            <select name="lantai" id="inputState" class="form-control">
+                            <select name="idKmr" id="inputState" class="form-control">
                                 <option selected>Pilih...</option>
                                 <?php 
 					            include 'config/connection.php';
@@ -306,7 +306,7 @@
                                 $json = array();
                                 while($d = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 				                ?>
-                                <option value="<?php $d['idKmr'];?>">
+                                <option value="<?php echo $d['idKmr'];?>">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <h4>Kamar No: <?php echo $d['nomorKmr'];?></h4>
@@ -322,7 +322,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="inputState">Nama Pelanggan</label>
-                            <select name="lantai" id="inputState" class="form-control">
+                            <select name="idPel" id="inputState" class="form-control">
                                 <option selected>Pilih...</option>
                                 <?php 
 					            include 'config/connection.php';
@@ -331,7 +331,6 @@
                                     echo "Koneksi Gagal</br>";
                                     die( print_r( sqlsrv_errors(), true));
                                 }
-                                $no = 1;
                                 $tsql = "SELECT * FROM Pelanggan";
                                 $stmt = sqlsrv_query( $conn, $tsql);
                                 if( $stmt === false ) {
@@ -341,14 +340,14 @@
                                 $json = array();
                                 while($d = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
 				                ?>
-                                <option value="<?php $d['idPel'];?>">
+                                <option value="<?php echo $d['idPel'];?>">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <h4>Nama: <?php echo $d['nama'];?></h4>
                                             <h4>Alamat: <?php echo $d['alamat'];?></h4>
                                             <h5>No HP <?php echo $d['noHp'];?></h5>
-                                    </div>
                                         </div>
+                                    </div>
                                 </option>      
                                 <?php
                                     }
@@ -361,7 +360,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>Tanggal Checkout:</label>
-                            <input type="date"  name="tglCheckout"  class="form-control datepicker"  required/>
+                            <input id="datepicker" type="date"  name="tglCheckout"  class="form-control datepicker"  required/>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success pull-right">Simpan</button>
